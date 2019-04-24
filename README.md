@@ -1,22 +1,7 @@
-This is a small example using [mosquitto]'s [MQTT] client library.
+This is a linux application running at rasbian for rpi.
+It's functions is:
+1. Receiving the data of sensor networks through UART;
+2. Publishing sensor data by MQTT message;
+3. When receiving controlling commands from subscribed MQTT message, Sending them to sensor networks through UART;
 
-It creates a client that connects to an MQTT broker at localhost:1883
-(if running), then subscribes to the topics `tick`, `control/#{PID}`,
-and `control/all`. Every time it gets a `tick` message via the `tick`
-topic, it publishes its pid and uptime on `tock/#{PID}`. If the message
-`halt` is received on `control/all` or `control/#{PID}`, the client will
-free its resources and halt.
-
-Note: If you are running a Linux distribution that uses apt-based
-packaging (e.g. Debian or Ubuntu) you may need to install the `-dev`
-packages as well as the basic mosquitto packages to get the headers.
-
-[mosquitto]: http://mosquitto.org
-[MQTT]: http://mqtt.org/
-
-
-# NOTE: THIS EXAMPLE MAY BE OUT OF DATE!
-
-It was written four years ago and the Mosquitto C library has had API
-changes. This example is no longer actively maintained (but pull
-requests or requests to take over maintainership are welcome).
+Thanks silentbicycle for good work of mqtt demo.
