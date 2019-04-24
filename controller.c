@@ -32,7 +32,7 @@
  * seconds) on "tock/#{PID}" every time it gets a "tick" message. If the
  * message "halt" is sent to either "control" endpoint, it will
  * disconnect, free its resources, and exit. */
-
+#define xxxx
 #ifdef DEBUG
 #define LOG(...) do { printf(__VA_ARGS__); } while (0)
 #else
@@ -129,8 +129,8 @@ static void on_message(struct mosquitto *m, void *udata,
                        const struct mosquitto_message *msg) {
     if (msg == NULL) { return; }
     LOG("-- got message @ %s: (%d, QoS %d, %s) '%s'\n",
-        msg->topic, msg->payloadlen, msg->qos, msg->retain ? "R" : "!r",
-        msg->payload);
+        (char *)msg->topic, msg->payloadlen, msg->qos, msg->retain ? "R" : "!r",
+        (char *)msg->payload);
 
     struct client_info *info = (struct client_info *)udata;
 
