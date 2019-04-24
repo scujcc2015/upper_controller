@@ -4,13 +4,12 @@ LDFLAGS += -lmosquitto
 # Uncomment this to print out debugging info.
 #CFLAGS += -DDEBUG
 
-PROJECT=client
+PROJECT=controller
 
 all: ${PROJECT}
+	cc ${CFLAGS} -o ${PROJECT} ${PROJECT}.c ${LDFLAGS}
+#controller: Makefile 
 
-client: client.o
-
-client.o: Makefile
 
 clean:
 	rm -rf *.o ${PROJECT}
